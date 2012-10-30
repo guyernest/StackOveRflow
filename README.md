@@ -10,7 +10,7 @@ What does it do?
 It allows importing the output file:
 * Tag Popularity Analysis
 
-![Tag Analysis Example](https://raw.github.com/guyernest/StachOveRflow/master/AWSTags.png)
+![Tag Analysis Example](https://raw.github.com/guyernest/StackOveRflow/master/AWSTags.png)
 
 How to make it work?
 --------------------
