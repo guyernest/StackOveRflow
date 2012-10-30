@@ -24,10 +24,12 @@ topTagsPerMonth <- merge(topTagsPerMonth, tagTotal)
 topTagsPerMonth$Percent <- topTagsPerMonth$UpVotes / topTagsPerMonth$totalMonth
 topTagsPerMonth <- topTagsPerMonth[topTagsPerMonth$Month > 1303,]
 topTagsPerMonth$MonthDate <- as.Date(as.yearmon(1900+topTagsPerMonth$Month/12))
+# Filter for meaningful tags only 
+topTagsPerMonth <- topTagsPerMonth[topTagsPerMonth$totalTag>1000,]
 
 library(ggplot2)
 tile <- ggplot(aes(x = reorder(TagName, totalTag), y = MonthDate), data = topTagsPerMonth)
-tile <- tile + labs(x="Tag",y="Date")
+tile <- tile + labs(x="Tag",y="Month")
 tile <- tile + geom_tile(aes(fill = Percent)) + scale_fill_gradient(low="white", high="blue")
 #tile <- tile + scale_y_continuous(name="Date")
 tile + opts(axis.text.x=theme_text(angle=90)) + coord_flip()
